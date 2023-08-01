@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from .models import User,Tag,Question
+from django.contrib.auth import authenticate
 
 class TagSerializer(serializers.ModelSerializer):
     class Meta:
