@@ -3,7 +3,7 @@ from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework_simplejwt.views import TokenObtainPairView
 from .models import User,Tag,Question
-from .serializers import UserSerializer,QuestionSerializer, TagSerializer
+from .serializers import UserSerializer,QuestionSerializer, TagSerializer,UserLoginSerializer
 
 class RegisterUserView(generics.CreateAPIView):
     queryset = User.objects.all()
@@ -25,7 +25,7 @@ class RegisterUserView(generics.CreateAPIView):
 
 class LoginUserView(generics.CreateAPIView):
     queryset = User.objects.all()
-    serializer_class = UserSerializer
+    serializer_class = UserLoginSerializer
     permission_classes = [permissions.AllowAny]
 
     def post(self, request, *args, **kwargs):
